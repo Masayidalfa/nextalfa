@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { FaSquareGithub, FaSquareInstagram } from "react-icons/fa6"
-import { BiLogoLinkedinSquare } from "react-icons/bi"
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6"
 import type { IconType } from "react-icons"
 import ShinyText from "../ShinyText"
 import RotatingText from "../RotatingText"
@@ -34,9 +33,9 @@ const NAVIGATION: NavItem[] = [
 ]
 
 const SOCIAL_LINKS: SocialLink[] = [
-  { name: "Instagram", href: "https://www.instagram.com/masayidalfa/", icon: FaSquareInstagram },
-  { name: "Github", href: "https://github.com/Masayidalfa", icon: FaSquareGithub },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/muhamad-masayid-alfarizqi-428747252/", icon: BiLogoLinkedinSquare },
+  { name: "Instagram", href: "https://www.instagram.com/masayidalfa/", icon: FaInstagram },
+  { name: "Github", href: "https://github.com/Masayidalfa", icon: FaGithub },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/muhamad-masayid-alfarizqi-428747252/", icon: FaLinkedin },
 ]
 
 // Berapa kali garis hamburger berputar penuh sebelum jadi silang
@@ -72,10 +71,11 @@ function SocialIcons({ className = "" }: { className?: string }) {
           key={name}
           href={href}
           aria-label={name}
-          className="inline-block transition-transform duration-200 hover:scale-125"
           target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex size-9 items-center justify-center rounded-md text-white transition-all duration-200 hover:scale-110 hover:bg-white hover:text-black hover:border-white"
         >
-          <Icon className="size-7 text-white" />
+          <Icon className="size-5" />
         </a>
       ))}
     </div>

@@ -15,8 +15,8 @@ const config: Config = {
       },
 
       fontFamily: {
-        sans: ["var(--font-sora)"],
-        paragraph: ["var(--font-shantell)"],
+      sans: ["var(--font-poppins)", "var(--font-zen-kaku)"], // heading
+      paragraph: ["var(--font-inter)", "var(--font-noto-jp)"], // body
       },
     },
   },

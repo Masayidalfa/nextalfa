@@ -559,10 +559,8 @@ export default function Exp() {
 
       <style jsx>{`
         .wrapper {
-          background: #0b0b0e;
           color: #ffffff;
-          font-family: "Archivo", sans-serif;
-          padding: 4rem 1.5rem;
+          padding: 1rem 1.5rem;
         }
         .heading {
           max-width: 60rem;

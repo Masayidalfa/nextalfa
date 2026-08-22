@@ -46,7 +46,7 @@ export default function Contact(){
                 <div className="scale-[0.4]">
                     <Loader />
                 </div>
-                <p className="mt-10">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et ea officia tempore maxime nostrum nihil?</p>
+                <p className="mt-10 text-xl">Always open to new projects, collaborations, or just a good conversation. Pick one of the options below and let`s get in touch.</p>
             
                 <SocialLinks />
             </div>
