@@ -138,7 +138,6 @@ function ProjectCard({
                 {/* LAYER 10 — SCREENSHOT / MINI BROWSER */}
                 <div className="absolute inset-y-0 right-0 z-10 flex w-3/5 items-center justify-center px-8">
                     <div className="w-full rounded-lg overflow-hidden shadow-2xl border border-white/10">
-                        {/* fake browser topbar */}
                         <div className="flex items-center gap-1.5 bg-[#10171a] px-3 py-2">
                             <span className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
                             <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
@@ -149,42 +148,43 @@ function ProjectCard({
                             alt={project.title}
                             className="w-full object-cover bg-[#071013]/60"
                         />
-                        {/* dark overlay */}
                     </div>
                 </div>
 
                 {/* LAYER 20 — TEXT */}
                 <div className="absolute inset-0 z-30 flex items-center">
                     <div className="absolute inset-0 z-20 w-3/5">
-                        <div className="h-full flex flex-col justify-between px-3 py-3 md:px-10 md:py-10">
+                        <div className="h-full flex flex-col justify-between px-3 py-3 sm:px-5 sm:py-5 md:px-10 md:py-10">
 
                             {/* ZONA ATAS */}
                             <div>
-                                <p className="text-[8px] sm:text-[10px] md:text-base font-semibold leading-tight">{project.client}</p>
-                                <p className="mt-0.5 text-[8px] md:text-base text-gray-300 font-sans">
+                                <p className="text-xs sm:text-sm md:text-base font-semibold leading-tight line-clamp-1">
+                                    {project.client}
+                                </p>
+                                <p className="mt-0.5 text-[11px] sm:text-xs md:text-base text-gray-300 font-sans">
                                     {project.year} | {project.location}
                                 </p>
                             </div>
 
                             {/* ZONA TENGAH */}
                             <div>
-                                <p className="text-[8px] sm:text-[10px] md:text-base font-medium uppercase tracking-widest text-gray-300 font-sans">
+                                <p className="text-[11px] sm:text-xs md:text-base font-medium uppercase tracking-widest text-gray-300 font-sans line-clamp-1">
                                     {project.position}
                                 </p>
-                                <h2 className="mt-1.5 mb-1.5 sm:mt-7 sm:mb-7 text-[8px] sm:text-sm md:text-xl font-bold leading-tight line-clamp-2 sm:line-clamp-none">
+                                <h2 className="mt-1 mb-1 sm:mt-4 sm:mb-4 md:mt-7 md:mb-7 text-xs sm:text-base md:text-xl font-bold leading-tight line-clamp-2">
                                     {project.title}
                                 </h2>
-                                <p className="text-[8px] sm:text-[10px] md:text-sm leading-4 sm:leading-6 text-gray-200 max-w-md line-clamp-2 sm:line-clamp-none">
+                                <p className="text-[11px] sm:text-xs md:text-sm leading-4 sm:leading-5 md:leading-6 text-gray-200 max-w-md line-clamp-2">
                                     {project.description}
                                 </p>
                             </div>
 
-                            {/* ZONA BAWAH — sekarang jadi tombol buka modal */}
+                            {/* ZONA BAWAH */}
                             <div>
                                 <button
                                     type="button"
                                     onClick={() => onOpen(project)}
-                                    className="text-[8px] sm:text-[10px] px-2 py-1 sm:px-2 sm:py-2 border-2 transition-colors duration-200 hover:bg-white hover:text-black flex items-center gap-2 my-4 uppercase font-semibold"
+                                    className="text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3 sm:py-2 border-2 transition-colors duration-200 hover:bg-white hover:text-black flex items-center gap-2 my-2 sm:my-4 uppercase font-semibold"
                                 >
                                     View Detail
                                 </button>

@@ -229,9 +229,7 @@ function TimelineCard({ item }: { item: TimelineItemData }) {
           style-nya WAJIB ada di sini juga, bukan di komponen Exp. */}
       <style jsx>{`
         .card {
-          background: #17171b;
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 18px;
+          background: #071013;
           padding: 1.5rem;
           opacity: 0;
           transform: translateY(28px);

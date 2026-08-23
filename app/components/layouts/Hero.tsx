@@ -9,7 +9,6 @@ export default function Hero() {
   return (
     <section className="min-h-full flex items-center px-6 sm:px-10 md:px-20 pt-20">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-0 md:grid-cols-12 text-white">
-
         {/* Text */}
         <div className="order-2 space-y-6 text-center md:order-1 md:col-span-6 md:text-left">
 

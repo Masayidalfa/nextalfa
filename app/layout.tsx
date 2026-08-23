@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Shantell_Sans } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -27,7 +28,10 @@ export default function RootLayout({
       lang="en"
       className={`${sora.variable} ${shantellSans.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollToTop />
+      </body>
     </html>
   );
 }

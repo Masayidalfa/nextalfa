@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { useEffect, useState } from "react"
+import { createPortal } from "react-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { IoClose } from "react-icons/io5"
 import { HiOutlineArrowUpRight } from "react-icons/hi2"
@@ -155,7 +157,7 @@ function ActionButtons({
 
             {resolvedLinks.map((link) => {
                 const isActive = link.active !== false
-
+                
                 if (!isActive) {
                     return (
                         <button
@@ -197,7 +199,30 @@ export default function ProjectModal({
     project: Project | null
     onClose: () => void
 }) {
-    return (
+    // Portal butuh document, yang cuma ada di client — pastikan komponen
+    // sudah mounted dulu sebelum createPortal dipanggil, biar aman di SSR
+    // (Next.js render pertama kali di server, document belum ada di situ).
+    const [mounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    // Scroll lock: kunci scroll body pas modal kebuka,
+    // restore ke nilai semula pas modal ditutup / komponen unmount.
+    useEffect(() => {
+        if (project) {
+            const originalOverflow = document.body.style.overflow
+            document.body.style.overflow = "hidden"
+            return () => {
+                document.body.style.overflow = originalOverflow
+            }
+        }
+    }, [project])
+
+    if (!mounted) return null
+
+    const modalContent = (
         <AnimatePresence>
             {project && (
                 <>
@@ -323,4 +348,6 @@ export default function ProjectModal({
             )}
         </AnimatePresence>
     )
+
+    return createPortal(modalContent, document.body)
 }
