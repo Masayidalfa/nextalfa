@@ -163,8 +163,8 @@ export default function Skill() {
                                 onClick={() => setActiveCategory(category)}
                                 className={
                                     isActive
-                                        ? "rounded-lg bg-[#1C77C3] px-4 py-2 text-sm text-black"
-                                        : "rounded-lg border border-[#1C77C3] px-4 py-2 text-sm"
+                                        ? "rounded-lg bg-[#1C77C3] px-4 py-2 text-sm text-black transition-colors duration-200 hover:bg-[#1C77C3]/80"
+                                        : "rounded-lg border border-[#1C77C3] px-4 py-2 text-sm text-white transition-colors duration-200 hover:bg-[#1C77C3] hover:text-black"
                                 }
                             >
                                 {category}
@@ -197,7 +197,7 @@ export default function Skill() {
                                         return (
                                             <div
                                                 key={skill.name}
-                                                className="flex items-center gap-2 border px-2 py-2 rounded-lg"
+                                                className="flex items-center gap-2 border px-2 py-2 rounded-lg transition-colors duration-200 hover:border-[#1C77C3] hover:bg-[#1C77C3]/10"
                                             >
                                                 <Icon className="text-2xl text-[#1C77C3]" />
                                                 <p>{skill.name}</p>
