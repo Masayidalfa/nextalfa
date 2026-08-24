@@ -2,7 +2,18 @@
 'use client'
 
 import { useState } from "react"
-import { SiReact, SiRedux, SiTailwindcss, SiNextdotjs, SiPython, SiScikitlearn } from "react-icons/si"
+import {
+    SiPhp,
+    SiMoodle,
+    SiRedis,
+    SiGrafana,
+    SiHtml5,
+    SiTailwindcss,
+    SiJavascript,
+    SiReact,
+    SiLaravel,
+    SiTypescript,
+} from "react-icons/si"
 import RotatingText from "../RotatingText"
 import ShinyText from "../ShinyText"
 import ProjectModal, { type Project } from "../ProjectModal"
@@ -18,10 +29,13 @@ const projects: Project[] = [
             "Developed an Intrusion Detection System using supervised machine learning to detect SQL Injection and Cross-Site Scripting (XSS) attacks on the Moodle platform, including the development of a custom Moodle plugin as part of the research implementation.",
         bgImage: "/assets/image/project/bgP1.jpg",
         previewImage: "/assets/image/project/P1.png",
-        responsibilities: ["Full-stack Dev", "Model Training", "Moodle Plugin Dev"],
+        responsibilities: ["Software Engineer", "Midleware Engineer", "Moodle Plugin Dev"],
         techStack: [
-            { name: "Python", icon: SiPython },
-            { name: "Scikit-learn", icon: SiScikitlearn },
+            { name: "PHP", icon: SiPhp },
+            { name: "Moodle", icon: SiMoodle },
+            { name: "Redis", icon: SiRedis },
+            { name: "Grafana", icon: SiGrafana },
+            { name: "Loki", icon: SiGrafana },
         ],
         // Contoh: project ini punya case study lengkap (bukan NDA)
         caseStudy: [
@@ -84,8 +98,9 @@ const projects: Project[] = [
         previewImage: "/assets/image/project/P2.png",
         responsibilities: ["Frontend Dev", "Responsive Layout"],
         techStack: [
-            { name: "Next.js", icon: SiNextdotjs },
+            { name: "HTML", icon: SiHtml5 },
             { name: "Tailwind CSS", icon: SiTailwindcss },
+            { name: "JavaScript", icon: SiJavascript },
         ],
         caseStudyUnavailableReason:
             "Detail proses pengerjaan untuk project ini belum dapat dipublikasikan atas permintaan klien.",
@@ -105,8 +120,10 @@ const projects: Project[] = [
         previewImage: "/assets/image/project/P3.png",
         responsibilities: ["Full-stack Dev"],
         techStack: [
-            { name: "React, React Native", icon: SiReact },
-            { name: "Redux", icon: SiRedux },
+            { name: "React.js", icon: SiReact },
+            { name: "Laravel", icon: SiLaravel },
+            { name: "TypeScript", icon: SiTypescript },
+            { name: "Tailwind CSS", icon: SiTailwindcss },
         ],
         // Contoh: website-nya sudah tidak aktif -> tombol jadi "Offline"
         links: [

@@ -51,7 +51,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     const el = ref.current;
     if (!el) return;
 
-    let scrollerTarget: Element | string | null = container || document.getElementById('snap-main-container') || null;
+    let scrollerTarget: Element | string | null =
+      container ||
+      document.getElementById('snap-main-container') ||
+      null;
 
     if (typeof scrollerTarget === 'string') {
       scrollerTarget = document.querySelector(scrollerTarget);
@@ -65,14 +68,15 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       [axis]: offset,
       scale,
       opacity: animateOpacity ? initialOpacity : 1,
-      visibility: 'visible'
+      visibility: 'visible',
     });
 
     const tl = gsap.timeline({
       paused: true,
       delay,
       onComplete: () => {
-        if (onComplete) onComplete();
+        onComplete?.();
+
         if (disappearAfter > 0) {
           gsap.to(el, {
             [axis]: reverse ? distance : -distance,
@@ -81,10 +85,10 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
             delay: disappearAfter,
             duration: disappearDuration,
             ease: disappearEase,
-            onComplete: () => onDisappearanceComplete?.()
+            onComplete: () => onDisappearanceComplete?.(),
           });
         }
-      }
+      },
     });
 
     tl.to(el, {
@@ -92,7 +96,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       scale: 1,
       opacity: 1,
       duration,
-      ease
+      ease,
     });
 
     const st = ScrollTrigger.create({
@@ -100,10 +104,21 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       scroller: scrollerTarget || window,
       start: `top ${startPct}%`,
       once: true,
-      onEnter: () => tl.play()
+      onEnter: () => tl.play(),
     });
 
+    /*
+     * Refresh ScrollTrigger ketika tinggi/layout element berubah.
+     * Ini penting ketika isi seperti Skill berubah karena filter.
+     */
+    const resizeObserver = new ResizeObserver(() => {
+      ScrollTrigger.refresh();
+    });
+
+    resizeObserver.observe(el);
+
     return () => {
+      resizeObserver.disconnect();
       st.kill();
       tl.kill();
     };
@@ -123,11 +138,15 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     disappearDuration,
     disappearEase,
     onComplete,
-    onDisappearanceComplete
+    onDisappearanceComplete,
   ]);
 
   return (
-    <div ref={ref} className={`invisible ${className}`} {...props}>
+    <div
+      ref={ref}
+      className={`invisible ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
