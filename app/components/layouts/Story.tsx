@@ -151,7 +151,7 @@ export default function Story() {
 
                 <p>WHAT PEOPLE SAY ABOUT ME</p>
                 <TextShuffle
-                    texts={["Reliable", "Funny", "Handsome", "Team Player"]}
+                    texts={["Reliable", "Funny", "Humble", "Team Player", "Resilient."]}
                     interval={200}
                     className="text-4xl font-extrabold uppercase"
                 />
