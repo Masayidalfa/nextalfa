@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
+// anjay
 export interface TextShuffleProps {
   /** Daftar kata/kalimat yang akan ditampilkan bergantian */
   texts: string[];
